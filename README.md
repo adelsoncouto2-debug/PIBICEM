@@ -9,3 +9,8 @@ Nesse repositório serão postados:
 <br>
 -Um modelo de maching learning baseado em séries de Taylor para análise de EEGs 
 
+<h2>Instruções para execução do main.py</h2>
+Abra um codespace e nele criei um novo terminal. Nesse terminal digite: pip install sympy rich numpy matplotlib, caso não dê certo tente python -m pip install sympy rich numpy matplotlib
+em seguida basta executar python main.py dentro do termianl. 
+<br>
+<bold>OBS:</bold> para que esse tutorial funcione é necessário uma versão recente do Python como a 3.13 instalada na máquina 
