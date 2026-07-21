@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle at top, #fffdf8, #f6f1e8, #eee4d3);
+  color: #2b2b2b;
+  margin: 0;
+  padding: 40px 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.main_title {
+  font-size: 3rem;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  background: linear-gradient(
+    90deg,
+    #8a6d3b,
+    #d4af37,
+    #f7e7a9,
+    #d4af37,
+    #8a6d3b
+  );
+  background-size: 300%;
+  margin: 30px 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldText 6s linear infinite;
+}
+
+.line_below_title {
+  height: 4px;
+  width: 60%;
+  margin: 0 auto 50px;
+  background: linear-gradient(
+    90deg,
+    #00234d,
+    #0146ac,
+    #2e77b4,
+    #8eb4ff,
+    #3b6d8a
+  );
+  background-size: 300%;
+  animation: lineGlow 8s linear infinite;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  margin-bottom: 60px;
+}
+
+.timeline {
+  position: relative;
+  width: 80%;
+  max-width: 1100px;
+  height: 90px;
+  margin: 0 auto;
+}
+
+.line {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background: #b08d57;
+  border-radius: 2px;
+}
+
+.progress-line {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 6px;
+  width: 0%;
+  background: linear-gradient(90deg, #d4af37, #f7e7a9, #d4af37);
+  border-radius: 3px;
+  transition: width 0.8s ease-in-out;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+  z-index: 2;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border: 3px solid #b08d57;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.circle:hover {
+  transform: translateY(-50%) scale(1.25);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  background: #f9efcf;
+}
+
+.circle.active {
+  border-color: #d4af37;
+  background: #f9efcf;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+}
+
+.circle:nth-of-type(1) {
+  left: 0%;
+}
+.circle:nth-of-type(2) {
+  left: 25%;
+}
+.circle:nth-of-type(3) {
+  left: 50%;
+}
+.circle:nth-of-type(4) {
+  left: 75%;
+}
+.circle:nth-of-type(5) {
+  left: 100%;
+}
+
+.circle .date {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  color: #8a6d3b;
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+.circle .popup-text {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(3, 9, 55, 0.95);
+  color: #fffdf8;
+  padding: 10px 14px;
+  border-radius: 8px;
+  width: 200px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.circle:hover .popup-text {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.cards-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 250px;
+  padding: 20px;
+  scroll-margin-top: 30px;
+  min-height: 40px;
+}
+
+.cards {
+  background: #f5f0e6;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cards-header {
+  padding: 18px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #2b2b2b;
+  user-select: none;
+}
+
+.cards-header:hover {
+  background: #efe8d8;
+}
+
+.arrow-icon {
+  display: inline-block;
+  transition: transform 0.35s ease;
+  color: #8a6d3b;
+}
+
+.arrow-icon.rotacionado {
+  transform: rotate(180deg);
+}
+
+.cards-content {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.5s ease,
+    padding 0.5s ease;
+  padding: 0 20px;
+  background: #faf8f3;
+}
+
+.cards-content.aberto {
+  max-height: 1000px;
+  padding: 20px;
+}
+
+.cards-content-inner {
+  animation: fadeIn 0.5s ease;
+  overflow: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldText {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 300%;
+  }
+}
+
+@keyframes lineGlow {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 300%;
+  }
+}
+.zenao {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  max-width: 200px;
+  margin-top: 20px;
+  height: auto;
+}

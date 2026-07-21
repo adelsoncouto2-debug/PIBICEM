@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>A História das Séries de Fourier</title>
+  </head>
+  <body>
+    <h1 class="main_title">A História das Séries de Fourier</h1>
+    <div class="line_below_title"></div>
+
+    <div class="container">
+      <div class="timeline">
+        <div class="line"></div>
+        <div class="progress-line" id="progressLine"></div>
+
+        <button class="circle" data-position="0">
+          <span class="date">Antiguidade Clássica</span>
+          <span class="popup-text"
+            >Primeiras concepções do infinito por Zenão e Aristóteles</span
+          >
+        </button>
+
+        <button class="circle" data-position="25">
+          <span class="date">Idade Média</span>
+          <span class="popup-text"
+            >Consolidação do sistema decimal e desenvolvimento da álgebra</span
+          >
+        </button>
+
+        <button class="circle" data-position="50">
+          <span class="date">Idade Moderna (XV-XVII)</span>
+          <span class="popup-text"
+            >Desenvolvimento do cálculo integral e diferencial</span
+          >
+        </button>
+
+        <button class="circle" data-position="75">
+          <span class="date">Idade Moderna (XVIII-XIX)</span>
+          <span class="popup-text"
+            >Consolidação do cálculo e desenvolvimento das séries com Taylor e
+            Fourier</span
+          >
+        </button>
+
+        <button class="circle" data-position="100">
+          <span class="date">Idade Contemporânea</span>
+          <span class="popup-text"
+            >Formalização dos conceitos e aplicações</span
+          >
+        </button>
+      </div>
+    </div>
+
+    <div class="cards-container" id="cardsContainer">
+      <div class="cards" id="card" hidden>
+        <div class="cards-header" id="cardsHeader">
+          <span id="cardsTitle"></span>
+          <span class="arrow-icon">▼</span>
+        </div>
+        <div class="cards-content aberto" id="cardsContent">
+          <div class="cards-content-inner" id="cardsContentInner"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="conteudosData" hidden>
+      <div data-position="0">
+        <h3>Zenão de Eleia e os Paradoxos</h3>
+        <p>
+          Por volta do século V a.c, Zenão de Eleia elucidou diversos paradoxos,
+          consoante a visão racionalista radical pré-socrática (visão que
+          defendia a subjetividade extrema de conceitos "comuns" na sociedade.
+          Para esses filosófos o movimento, o tempo e o espaço não existiam),
+          dentre eles o de Aquiles e a tartaruga, da flecha e da dicotomia.
+          Daremos destaque ao primeiro. Nesse paradoxo ele dissertava sobre uma
+          corrida em que uma tartaruga saía alguns centímetros à frente do
+          grande corredor Aquiles, e a partir disso ele elucidava que seria
+          impossível Aquiles chegar na tartaruga, pois quando Aquiles se movesse
+          um pouco a tartaruga ainda iria se mover um pouco, de modo que a
+          distância entre eles fosse de centímetros, milímetros, nanômetros,
+          etc, mas ele nunca chegaria. <br />
+          <br />
+          Após Zenão, veio Aristotéles que definiu infinito atual e infinito
+          potencial. O infinito potencial é aquele que o número de termos cresce
+          indefinidamente sem atingir a um ponto, pode-se relacionar a ideia de
+          limite. Já o infinito atual e aquele em que há uma totalidade infinita
+          acabada (convergente), podendo-nos referir a séries.
+          <img class="zenao" src="./assets/zenao_eleia.jpg" alt="zenao" />
+          <br /><br />
+          Posteriormente, no século III a.C., Arquimedes de Siracusa promoveu um
+          avanço significativo na compreensão do infinito ao desenvolver o
+          chamado método da exaustão. Esse método consistia em aproximar áreas e
+          volumes por meio da inscrição e circunscrição de figuras geométricas
+          com um número cada vez maior de lados. Embora não utilizasse
+          formalmente o conceito de séries infinitas, seu raciocínio
+          fundamentava-se na ideia de que uma sequência de aproximações poderia
+          conduzir a um resultado exato, antecipando princípios que, séculos
+          mais tarde, seriam formalizados pela teoria dos limites e das séries
+          convergentes.
+        </p>
+      </div>
+
+      <div data-position="25">
+        <h3>Idade Média</h3>
+        <p>Consolidação do sistema decimal...</p>
+      </div>
+
+      <div data-position="50">
+        <h3>Idade Moderna (XV-XVII)</h3>
+        <p>Desenvolvimento do cálculo...</p>
+      </div>
+
+      <div data-position="75">
+        <h3>Idade Moderna (XVIII-XIX)</h3>
+        <p>Desenvolvimento das séries com Taylor e Fourier...</p>
+      </div>
+
+      <div data-position="100">
+        <h3>Idade Contemporânea</h3>
+        <p>Formalização e aplicações modernas...</p>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
