@@ -8,10 +8,10 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>A História das Séries de Fourier</title>
+    <title>A História do Infinito</title>
   </head>
   <body>
-    <h1 class="main_title">A História das Séries de Fourier</h1>
+    <h1 class="main_title">A História do Infinito</h1>
     <div class="line_below_title"></div>
 
     <div class="container">
@@ -54,7 +54,24 @@
             >Formalização dos conceitos e aplicações</span
           >
         </button>
+
+        <!--
+          "Encaixe" do botão de vídeos. Fica vazio até uma época ser
+          clicada; o JS move o botão real (#videosBtn) pra dentro
+          dele e ajusta a posição horizontal para ficar embaixo do
+          círculo clicado.
+        -->
+        <div class="video-slot" id="videoSlot"></div>
       </div>
+    </div>
+
+    <!--
+      Botão de vídeos na "tela inicial" (antes de qualquer época ser
+      clicada). Some assim que uma época é selecionada, porque o
+      botão de dentro dele é movido para o video-slot acima.
+    -->
+    <div class="videos-home" id="videosHome">
+      <button type="button" class="video-btn" id="videosBtn">🎬 Vídeos</button>
     </div>
 
     <div class="cards-container" id="cardsContainer">
@@ -108,22 +125,241 @@
 
       <div data-position="25">
         <h3>Idade Média</h3>
-        <p>Consolidação do sistema decimal...</p>
+        <p>
+          Em uma visão eurocentrista a Idade Média foi, durante muito tempo,
+          caracterizada como a "Idade das Trevas", marcada por um suposto
+          estagnamento científico. Contudo, essa interpretação tornou-se
+          meramente ultrapassada nos tempos atuais. Nesse período, importantes
+          centros de produção do conhecimento floresceram no mundo islâmico e na
+          Ásia, reunindo, preservando e expandindo grande parte do legado
+          matemático da Antiguidade. Entre seus principais representantes
+          destaca-se Al-Khwarizmi, que os trabalhos sistematizaram o uso dos
+          algarismos indo-arábicos e estabeleceram fundamentos da Álgebra, além
+          de Sridhara, matemático indiano que realizou importantes contribuições
+          para a resolução de equações e para a aritmética.
+          <img
+            class="zenao"
+            src="./assets/Idade_media.jpg"
+            alt="Al-Khwarizmi"
+          />
+          <br />
+          <br />
+          A partir da Baixa Idade Média, grande parte desse conhecimento foi
+          introduzida na Europa por meio de traduções do árabe para o latim
+          realizadas por estudiosos como Adelardo de Bath e Gerardo de Cremona.
+          Esse intenso fluxo intelectual possibilitou que matemáticos europeus
+          desenvolvessem novas teorias e métodos, culminando, já durante o
+          Renascimento, nos trabalhos de Fibonacci, Niccolò Fontana Tartaglia,
+          Girolamo Cardano e Lodovico Ferrari. Esses avanços contribuíram
+          significativamente para a consolidação da matemática europeia e
+          prepararam o terreno para o surgimento da matemática moderna.
+        </p>
       </div>
 
       <div data-position="50">
         <h3>Idade Moderna (XV-XVII)</h3>
-        <p>Desenvolvimento do cálculo...</p>
+        <p>
+          Já na Idade Moderna, vieram Galileu Galilei e Johannes Kepler,
+          fascinados pelo universo e pelo movimento planetário. Galileu
+          influenciou diretamente Bonaventura Cavalieri, que se declarou
+          discípulo do próprio, havendo diversas correspondências entre os dois.
+          Cavalieri foi uma das peças fundamentais para o desenvolvimento das
+          séries e do cálculo integral, visto que elucidou um método em seu
+          livro
+          <i
+            >A Certain Method for the Development of a New Geometry of
+            Continuous Indivisibles</i
+          >, que consistia no seguinte raciocínio:
+          <br />
+          <br />
+          1 - Uma linha é formada por infinitos pontos.
+          <br />
+          2 - Uma superfície é formada por infinitas linhas.
+          <br />
+          3 - Um sólido pode ser pensado por infinitas superfícies.
+          <br />
+          <br />
+          Desse modo, mesmo que não fosse conduzida de maneira formal, a teoria
+          da época já esboçava princípios de séries, limites e cálculo. Nessa
+          mesma época, René Descartes e Pierre de Fermat debatiam entre si, sob
+          o intermédio de um matemático denominado Marin Mersenne, desde que
+          Fermat havia alegado ter descoberto a geometria analítica uma década
+          antes e, além disso, questionava as descobertas da óptica de
+          Descartes. Ambos, nessa época, trabalhavam para descobrir qual o ponto
+          máximo de uma função, sendo que Fermat obteve êxito a partir do
+          desenvolvimento de uma "derivada" igual a zero.
+          <img class="zenao" src="./assets/Newton.jpg" alt="Isaac Newton" />
+          <br />
+          <br />
+          Para consolidar o cálculo diferencial e integral na história, chegaram
+          Gottfried Wilhelm Leibniz e Sir Isaac Newton. Newton "criou" o cálculo
+          diferencial e integral ao demonstrar a veracidade das Leis de Kepler.
+          Inclusive, há um episódio envolvendo Edmond Halley: certo dia, Halley
+          foi dissertar com Newton a respeito da demonstração das Leis de
+          Kepler, e Newton afirmou que já havia realizado essa demonstração,
+          embora não estivesse com as provas dos cálculos. Para resolver esse
+          problema, escreveu a obra
+          <i>Philosophiæ Naturalis Principia Mathematica</i> (<i
+            >Princípios Matemáticos da Filosofia Natural</i
+          >). Já Leibniz foi motivado por seus estudos e pelas personalidades
+          vistas anteriormente, elucidando os símbolos de &#x222b; para as
+          integrais e d para as derivadas.
+        </p>
       </div>
 
       <div data-position="75">
         <h3>Idade Moderna (XVIII-XIX)</h3>
-        <p>Desenvolvimento das séries com Taylor e Fourier...</p>
+        <p>
+          Após a consolidação do cálculo, diversos cientistas o desbravaram e,
+          nas aplicações das ciências naturais, vislumbrou-se, naturalmente, o
+          aparecimento das séries infinitas. Relacionado a isso, veio Jacob
+          Bernoulli, que utilizou as séries infinitas e exponenciais em
+          problemas da hidrodinâmica e, mesmo com caráter matemático, agrupou
+          essas ideias no livro <i>Ars Conjectandi</i>. Em seguida, veio Brook
+          Taylor, o qual elucidou uma série que dissertava sobre a solução de
+          uma função de valor desconhecido a partir da aproximação de um de seus
+          pontos na forma de um polinômio. <br />
+          <br />
+          Para conduzir a revolução dessa área, Euler foi essencial. Ele
+          conduziu a demonstração da igualdade de diversas séries; contudo, em
+          suas resoluções, deparou-se com séries divergentes, que, até então,
+          não eram formalizadas nem amplamente conhecidas, mas, mesmo assim,
+          conseguiu resolvê-las, gerando algumas confusões. Pode-se citar também
+          Carl Friedrich Gauss, que lidou rigorosamente com as séries,
+          principalmente porque seus estudos envolviam séries hipergeométricas,
+          além de ter sido o primeiro a definir critérios de convergência para
+          uma série. <br />
+          <img class="zenao" src="./assets/Gauss.jpg" alt="Gauss" />
+          <br />
+          Ainda na Idade Moderna, destacou-se Joseph Fourier, que revolucionou o
+          estudo das séries ao demonstrar que funções periódicas poderiam ser
+          representadas por somas infinitas de funções trigonométricas,
+          atualmente conhecidas como séries de Fourier. Inicialmente, suas
+          ideias encontraram resistência por parte da comunidade matemática, uma
+          vez que ainda não existia uma fundamentação rigorosa para justificar
+          tais representações. Apesar disso, seus trabalhos mostraram-se
+          extremamente eficazes na resolução da equação do calor e,
+          posteriormente, tornaram-se indispensáveis em diversas áreas da
+          matemática, da física e da engenharia, marcando uma das aplicações
+          mais importantes das séries infinitas
+        </p>
       </div>
 
       <div data-position="100">
         <h3>Idade Contemporânea</h3>
-        <p>Formalização e aplicações modernas...</p>
+        <p>
+          Entretanto, foi Augustin-Louis Cauchy quem conferiu às séries um
+          tratamento verdadeiramente rigoroso. Até então, muitos resultados eram
+          obtidos por argumentos intuitivos, que frequentemente levavam a
+          conclusões corretas, mas sem demonstrações formais. Cauchy introduziu
+          definições precisas para limites, sucessões e convergência,
+          estabelecendo critérios que permitiram verificar, de maneira rigorosa,
+          quando uma série poderia ou não ser considerada convergente. Seus
+          trabalhos marcaram o início da Análise Matemática moderna.
+          <br />
+          <br />
+          Posteriormente, Bernhard Riemann aprofundou ainda mais esses estudos
+          ao investigar séries infinitas e suas propriedades. Um de seus
+          principais resultados foi o Teorema da Rearranjação de Riemann, que
+          demonstra que uma série condicionalmente convergente pode assumir
+          diferentes valores quando seus termos são reorganizados. Esse
+          resultado evidenciou que as séries infinitas possuíam propriedades
+          muito mais sutis do que se imaginava, consolidando a necessidade de um
+          tratamento rigoroso para esse ramo da matemática.
+          <br />
+          <br />
+          <img class="zenao" src="./assets/Georg_Cantor.jpg" alt="Cantor" />
+          Por fim, Georg Cantor revolucionou o estudo do infinito ao criar a
+          Teoria dos Conjuntos e demonstrar que existem diferentes tamanhos de
+          infinito. Suas contribuições transformaram profundamente a compreensão
+          matemática desse conceito, fornecendo uma base sólida para o estudo
+          dos conjuntos infinitos, das sequências e das séries. Com isso, o
+          infinito deixou de ser apenas uma ideia filosófica e passou a
+          constituir um objeto matemático rigorosamente definido, consolidando
+          uma das mais importantes áreas da matemática contemporânea.
+          <br />
+          <br />
+          A partir desses avanços, a teoria das séries tornou-se uma das
+          principais ferramentas da matemática moderna, encontrando aplicações
+          em diversas áreas do conhecimento, como Física, Engenharia, Economia,
+          Ciência da Computação e Processamento de Sinais. Atualmente, séries
+          infinitas são utilizadas para representar funções, resolver equações
+          diferenciais, aproximar soluções numéricas e modelar fenômenos
+          naturais, demonstrando que um conceito originado de discussões
+          filosóficas sobre o infinito tornou-se um dos pilares da matemática
+          contemporânea.
+        </p>
+      </div>
+    </div>
+
+    <div id="videosData" hidden>
+      <div
+        class="video-item"
+        data-title="Vídeo 1"
+        data-src="./assets/videos/Euler.mp4"
+      ></div>
+      <div
+        class="video-item"
+        data-title="Vídeo 2"
+        data-src="./assets/videos/Euler_na_reta.mp4"
+      ></div>
+      <div
+        class="video-item"
+        data-title="Vídeo 3"
+        data-src="./assets/videos/euler_formula.mp4"
+      ></div>
+      <div
+        class="video-item"
+        data-title="Vídeo 4"
+        data-src="./assets/videos/Serie_de_taylor_cos.mp4"
+      ></div>
+      <div
+        class="video-item"
+        data-title="Vídeo 5"
+        data-src="./assets/videos/Serie_de_taylor_sen.mp4"
+      ></div>
+      <div
+        class="video-item"
+        data-title="Vídeo 6"
+        data-src="./assets/videos/Serie_de_taylor_ex.mp4"
+      ></div>
+      <div
+        class="video-item"
+        data-title="Vídeo 7"
+        data-src="./assets/videos/derivada de senx.mp4"
+      ></div>
+      <div
+        class="video-item"
+        data-title="Vídeo 8"
+        data-src="./assets/videos/derivadacos.mp4"
+      ></div>
+      <div
+        class="video-item"
+        data-title="Vídeo 9"
+        data-src="./assets/videos/Euler_aplicacao.mp4"
+      ></div>
+    </div>
+
+    <div class="videos-modal" id="videosModal" hidden>
+      <div class="videos-modal-backdrop" id="videosModalBackdrop"></div>
+      <div class="videos-modal-content">
+        <button
+          type="button"
+          class="videos-modal-close"
+          id="videosModalClose"
+          aria-label="Fechar"
+        ></button>
+        <h2 class="videos-modal-title">Vídeos</h2>
+
+        <div class="videos-grid" id="videosGrid"></div>
+
+        <div class="videos-player" id="videosPlayer" hidden>
+          <button type="button" class="videos-back" id="videosBack">
+            ← Voltar para a lista
+          </button>
+          <video id="videoPlayerEl" controls></video>
+          <h3 id="videoPlayerTitle"></h3>
+        </div>
       </div>
     </div>
 
