@@ -247,7 +247,27 @@ body {
   margin-top: 20px;
   height: auto;
 }
+.foto-lateral {
+  float: left;
+  width: 200px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
 
+.foto-lateral img {
+  width: 100%;
+  display: block;
+}
+
+.legenda {
+  display: block;
+  text-align: center;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
 .video-btn {
   display: inline-flex;
   align-items: center;
@@ -286,12 +306,9 @@ body {
   display: none;
 }
 
-/* Posição "sob a época ativa": um espaço reservado dentro da
-   própria timeline, que o JS reposiciona (left) conforme o
-   círculo clicado. Some quando vazio. */
 .video-slot {
   position: absolute;
-  top: 92px;
+  top: 160px;
   transform: translateX(-50%);
   z-index: 3;
 }
