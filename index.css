@@ -215,7 +215,12 @@ body {
 }
 
 .cards-content.aberto {
-  max-height: 1000px;
+  /* A altura de abertura agora é calculada dinamicamente pelo JS
+     (index.js), com base na altura real do conteúdo. O valor fixo
+     que existia aqui (1000px) era o que cortava o texto em telas
+     estreitas, onde o mesmo conteúdo ocupa mais altura por causa
+     das imagens flutuantes (.foto-lateral) reduzindo a largura
+     disponível para o texto. */
   padding: 20px;
 }
 
