@@ -215,12 +215,6 @@ body {
 }
 
 .cards-content.aberto {
-  /* A altura de abertura agora é calculada dinamicamente pelo JS
-     (index.js), com base na altura real do conteúdo. O valor fixo
-     que existia aqui (1000px) era o que cortava o texto em telas
-     estreitas, onde o mesmo conteúdo ocupa mais altura por causa
-     das imagens flutuantes (.foto-lateral) reduzindo a largura
-     disponível para o texto. */
   padding: 20px;
 }
 
@@ -275,6 +269,11 @@ body {
   font-size: 0.85rem;
   color: #666;
   font-style: italic;
+}
+
+
+.cards-content-inner h3 {
+  clear: both;
 }
 .video-btn {
   display: inline-flex;
