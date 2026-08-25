@@ -18,9 +18,83 @@ document.addEventListener("DOMContentLoaded", () => {
     return bloco ? bloco.innerHTML : "<p>Conteúdo em desenvolvimento...</p>";
   }
 
+  // --- Ajuste de altura do card (corrige o corte de texto no mobile) ---
+  //
+  // Antes, a abertura do card usava um max-height fixo em CSS (1000px),
+  // suficiente no desktop, mas não no celular: com a tela mais estreita,
+  // o mesmo texto ocupa mais altura (por causa das imagens flutuantes
+  // .foto-lateral reduzindo o espaço horizontal disponível), ultrapassa
+  // os 1000px e o excesso fica cortado pelo overflow:hidden.
+  //
+  // Agora a altura é calculada a partir do conteúdo real
+  // (cardsContentInner.scrollHeight). Depois que a transição termina,
+  // trocamos o max-height para "none", removendo qualquer limite —
+  // assim o conteúdo nunca mais é cortado, independente do tamanho da
+  // tela, do texto ou de quando as imagens terminam de carregar.
+
+  function alturaAtualDoConteudo() {
+    return cardsContentInner.scrollHeight;
+  }
+
+  cardsContent.addEventListener("transitionend", (evento) => {
+    if (
+      evento.propertyName === "max-height" &&
+      cardsContent.classList.contains("aberto")
+    ) {
+      cardsContent.style.maxHeight = "none";
+    }
+  });
+
+  function abrirCard() {
+    cardsContent.classList.add("aberto");
+    arrow.classList.remove("rotacionado");
+    requestAnimationFrame(() => {
+      cardsContent.style.maxHeight = alturaAtualDoConteudo() + "px";
+    });
+  }
+
+  function fecharCard() {
+    // Se estiver "none" (após já ter terminado de abrir), primeiro
+    // volta para um valor em pixels para permitir a transição suave
+    // até 0, já que o navegador não anima a partir de "none".
+    if (
+      cardsContent.style.maxHeight === "none" ||
+      cardsContent.style.maxHeight === ""
+    ) {
+      cardsContent.style.maxHeight = alturaAtualDoConteudo() + "px";
+      // força o navegador a aplicar o valor acima antes de mudar de novo
+      void cardsContent.offsetHeight;
+    }
+    requestAnimationFrame(() => {
+      cardsContent.classList.remove("aberto");
+      arrow.classList.add("rotacionado");
+      cardsContent.style.maxHeight = "0px";
+    });
+  }
+
+  // Reajusta a altura se alguma imagem do conteúdo ainda estiver
+  // carregando quando o card for aberto (evita corte por imagem que
+  // "cresce" depois que a altura já tinha sido calculada).
+  function observarImagensDoConteudo() {
+    const imagens = cardsContentInner.querySelectorAll("img");
+    imagens.forEach((img) => {
+      if (!img.complete) {
+        img.addEventListener("load", () => {
+          if (cardsContent.classList.contains("aberto")) {
+            cardsContent.style.maxHeight = "none";
+          }
+        });
+      }
+    });
+  }
+
   cardsHeader.addEventListener("click", () => {
-    cardsContent.classList.toggle("aberto");
-    arrow.classList.toggle("rotacionado");
+    const estaAberto = cardsContent.classList.contains("aberto");
+    if (estaAberto) {
+      fecharCard();
+    } else {
+      abrirCard();
+    }
   });
 
   const videosBtn = document.getElementById("videosBtn");
@@ -114,8 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
       cardsContentInner.innerHTML = getConteudo(position);
 
       card.hidden = false;
-      cardsContent.classList.add("aberto");
-      arrow.classList.remove("rotacionado");
+      abrirCard();
+      observarImagensDoConteudo();
 
       moverBotaoVideosPara(circle);
 
