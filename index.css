@@ -215,6 +215,12 @@ body {
 }
 
 .cards-content.aberto {
+  /* A altura de abertura agora é calculada dinamicamente pelo JS
+     (index.js), com base na altura real do conteúdo. O valor fixo
+     que existia aqui (1000px) era o que cortava o texto em telas
+     estreitas, onde o mesmo conteúdo ocupa mais altura por causa
+     das imagens flutuantes (.foto-lateral) reduzindo a largura
+     disponível para o texto. */
   padding: 20px;
 }
 
@@ -259,6 +265,8 @@ body {
 
 .foto-lateral img {
   width: 100%;
+  height: 240px;
+  object-fit: cover;
   display: block;
 }
 
@@ -271,7 +279,13 @@ body {
   font-style: italic;
 }
 
-
+/* Quando a imagem flutuante (.foto-lateral) é mais alta que o
+   parágrafo de texto ao lado dela, ela continua flutuando por cima
+   do conteúdo seguinte. Isso fazia o título "Referências
+   bibliográficas" (e o texto das referências) ficar espremido na
+   faixa estreita ao lado da imagem em vez de ocupar a largura toda.
+   Esta regra garante que esse título sempre comece abaixo de
+   qualquer imagem flutuante da seção. */
 .cards-content-inner h3 {
   clear: both;
 }
