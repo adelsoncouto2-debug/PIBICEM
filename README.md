@@ -6,8 +6,7 @@ Nesse repositório serão postados:
 -Vídeos produzidos com a linguagem Manim em Python
 <br>
 -Uma calculadora de séries de Taylor no terminal em Python 
-<br>
--Um modelo de maching learning baseado em séries de Taylor para análise de EEGs 
+
 
 <h2>Instruções para execução do main.py</h2>
 Abra um codespace e nele criei um novo terminal. Nesse terminal digite: pip install sympy rich numpy matplotlib, caso não dê certo tente python -m pip install sympy rich numpy matplotlib
