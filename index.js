@@ -54,15 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function fecharCard() {
-    // Se estiver "none" (após já ter terminado de abrir), primeiro
-    // volta para um valor em pixels para permitir a transição suave
-    // até 0, já que o navegador não anima a partir de "none".
     if (
       cardsContent.style.maxHeight === "none" ||
       cardsContent.style.maxHeight === ""
     ) {
       cardsContent.style.maxHeight = alturaAtualDoConteudo() + "px";
-      // força o navegador a aplicar o valor acima antes de mudar de novo
       void cardsContent.offsetHeight;
     }
     requestAnimationFrame(() => {
@@ -72,9 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Reajusta a altura se alguma imagem do conteúdo ainda estiver
-  // carregando quando o card for aberto (evita corte por imagem que
-  // "cresce" depois que a altura já tinha sido calculada).
   function observarImagensDoConteudo() {
     const imagens = cardsContentInner.querySelectorAll("img");
     imagens.forEach((img) => {
